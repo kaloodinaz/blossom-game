@@ -53,21 +53,24 @@ if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigat
 </div></div></div>
 </div></div></div>
 <div id="footer-placeholder"></div>
-
-<script defer src="https://kaloodinaz.github.io/index.js?v=22"></script>
-<script defer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
     function loadHTML(elementId, url) {
-    fetch(url)
-    .then(response => response.text())
-    .then(data => {
-    document.getElementById(elementId).innerHTML = data;
-    })
-    .catch(error => console.log('Error loading HTML: ', error));
+        fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+        })
+        .catch(error => console.log('Error loading HTML: ', error));
     }
+
     loadHTML('header-placeholder', 'https://kaloodinaz.github.io/header.html');
     loadHTML('footer-placeholder', 'https://kaloodinaz.github.io/footer.html');
     loadHTML('catalog-placeholder', 'https://kaloodinaz.github.io/catalog.html');
     loadHTML('social-placeholder', 'https://kaloodinaz.github.io/social.html');
-    </script>
+});
+</script>
+<script defer src="https://kaloodinaz.github.io/index.js?v=22"></script>
+
 </body>
 </html>
